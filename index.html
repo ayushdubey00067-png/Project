@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("58cc985e-6f42-4bdf-a873-3cea4911f781.jpg") 
+      no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      border-radius: 20px;
+      width: 400px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);    
+    }
+
+    .form-container h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0,123,255,0.5);
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Shopping Order</h1>
+    <form onsubmit="redirectPage(event)">
+      
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">E-mail Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+      <label for="phone">Contact Detail:</label>
+      <input type="tel" id="phone" name="phone" placeholder="98-xxxx-xxxx" required>
+
+      <label for="item">Item List:</label>
+      <select id="item" name="item" required>
+        <option value="">-- Select --</option>
+        <option value="Electronic">Electronic</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Bicycle">Bicycle</option>
+        <option value="Dairy Product">Dairy Product</option>
+        <option value="Cap">Cap</option>
+        <option value="Bag">Bag</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function redirectPage(event) {
+      event.preventDefault(); // stop normal form submission
+
+      // get values
+      let name = document.getElementById("name").value;
+      let item = document.getElementById("item").value;
+
+      // store data in localStorage so we can use it on the next page
+      localStorage.setItem("username", name);
+      localStorage.setItem("orderedItem", item);
+
+      // redirect to response page
+      window.location.href = "respond.html";
+    }
+  </script>
+</body>
+</html>
+
