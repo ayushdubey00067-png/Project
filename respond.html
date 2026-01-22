@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Response</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #6dd5ed, #2193b0);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .response-box {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 400px;
+    }
+
+    .response-box h1 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff9800;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #e68900;
+    }
+  </style>
+</head>
+<body>
+  <div class="response-box">
+    <h1>🎉 Order Submitted!</h1>
+    <p id="msg"></p>
+    <button class="btn" onclick="goBack()">Place Another Order</button>
+  </div>
+
+  <script>
+    // get data from localStorage
+    let name = localStorage.getItem("username");
+    let item = localStorage.getItem("orderedItem");
+
+    document.getElementById("msg").innerText = 
+      `Thank you, ${name}! Your order for ${item} has been received.`;
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
